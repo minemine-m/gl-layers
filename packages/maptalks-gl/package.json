@@ -12,10 +12,12 @@
     "dev": "rollup -w -c rollup.config.js",
     "build": "npm run clean && rollup -c rollup.config.js && npm run copy-styles",
     "copy-darwin-styles": "cp -rf node_modules/maptalks/dist/images dist && cp -f node_modules/maptalks/dist/maptalks.css dist",
-    "copy-win-styles": "xcopy node_modules\\maptalks\\dist\\images dist\\images /e /y /i && copy node_modules\\maptalks\\dist\\maptalks.css dist",
+    "copy-win-styles": "xcopy node_modules\\maptalks\\dist\\images dist\\images /e /y /i && copy node_modules\\maptalks\\dist\\maptalks.css dist\\maptalks-gl.css",
     "copy-styles": "npm run copy-win-styles"
   },
   "files": [
+    "dist/images/**/*",
+    "dist/maptalks-gl.css",
     "dist/maptalks-gl.js",
     "dist/maptalks-gl.js.map",
     "index.js",
