@@ -1,5 +1,11 @@
 # @maptalks/vt
 
+## 0.103.1
+
+### Patch Changes
+
+- remove log
+
 ## 0.103.0
 
 ### Minor Changes
