@@ -1,5 +1,11 @@
 # @maptalks/transcoders.ktx2
 
+## 0.101.0
+
+### Minor Changes
+
+- fix conlict versions on npm
+
 ## 0.99.0
 
 ### Minor Changes

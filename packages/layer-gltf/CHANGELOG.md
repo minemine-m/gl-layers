@@ -1,5 +1,11 @@
 # @maptalks/gltf-layer
 
+## 0.103.0
+
+### Minor Changes
+
+- fix conlict versions on npm
+
 ## 0.102.0
 
 ### Minor Changes
