@@ -1,5 +1,17 @@
 # @maptalks/transform-control
 
+## 0.103.0
+
+### Minor Changes
+
+- Bug fixes, remove analysis and msd-loader from maptalks-gl
+
+### Patch Changes
+
+- Updated dependencies
+  - @maptalks/gl@0.103.0
+  - @maptalks/gltf-layer@0.102.0
+
 ## 0.102.2
 
 ### Patch Changes

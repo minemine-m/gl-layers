@@ -1,5 +1,11 @@
 # @maptalks/gltf-layer
 
+## 0.102.0
+
+### Minor Changes
+
+- Bug fixes, remove analysis and msd-loader from maptalks-gl
+
 ## 0.101.1
 
 ### Patch Changes

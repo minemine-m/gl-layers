@@ -1,5 +1,16 @@
 # @maptalks/traffic
 
+## 0.99.0
+
+### Minor Changes
+
+- Bug fixes, remove analysis and msd-loader from maptalks-gl
+
+### Patch Changes
+
+- Updated dependencies
+  - @maptalks/gltf-layer@0.102.0
+
 ## 0.98.7
 
 ### Patch Changes
