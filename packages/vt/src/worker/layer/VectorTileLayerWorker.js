@@ -107,7 +107,6 @@ export default class VectorTileLayerWorker extends LayerWorker {
                             }
                             fea.properties[PROP_OMBB] = projectOMBB(ombb, 'EPSG:3857');
                         }
-                        console.log(fea.properties);
                         const altitudeBase64 = altitudePropertyName && fea.properties[altitudePropertyName];
                         if (altitudeBase64) {
                             const altitudes = decodeAltitude(altitudeBase64);
