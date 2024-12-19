@@ -1396,6 +1396,9 @@ class Vector3DLayerRenderer extends maptalks.renderer.CanvasRenderer {
         if (uid === undefined) {
             return;
         }
+        if (!this.painter) {
+            return;
+        }
         this.features[uid] = convertToFeature(geo, this._kidGen);
         this._refreshFeatures(this.features[uid], uid);
         if (this._markerMeshes && this._markerMeshes.length && this._markerPainter.needRebuildOnGometryPropertiesChanged() ||
