@@ -1,5 +1,12 @@
 # @maptalks/gl
 
+## 0.104.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @maptalks/reshader.gl@0.103.2
+
 ## 0.104.1
 
 ### Patch Changes

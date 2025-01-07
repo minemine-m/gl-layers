@@ -1,5 +1,12 @@
 # @maptalks/vt
 
+## 0.103.4
+
+### Patch Changes
+
+- some fixes
+  - @maptalks/gl@0.104.2
+
 ## 0.103.3
 
 ### Patch Changes
