@@ -77,7 +77,7 @@ export default class TerrainLayer extends MaskLayerMixin(maptalks.TileLayer) {
         const projection = map.getProjection();
         const is4326 = projection.code === "EPSG:4326" || projection.code === "EPSG:4490";
         const is3857 = projection.code === "EPSG:3857";
-        if (!options.spatialReference) {
+        if (options.tileSize === 512 && !options.spatialReference) {
             if (options.type === 'mapbox') {
                 if (is4326) {
                     options.spatialReference = 'preset-4326-512';
