@@ -19,6 +19,7 @@ attribute vec3 aPosition;
 #endif
 #if defined(HAS_COLOR)
     attribute vec4 aColor;
+    varying vec4 vColor;
 
 #elif defined(HAS_COLOR0)
     #if COLOR0_SIZE == 3
@@ -78,6 +79,7 @@ void toTangentFrame(const highp vec4 q, out highp vec3 n, out highp vec3 t) {
         vec3(-2.0,  2.0,  2.0) * q.z * q.zwx;
 }
 
+#include <vertex_color_vert>
 
 void main()
 {
@@ -145,4 +147,8 @@ void main()
     #endif
 
     highlight_setVarying();
+
+    #ifdef HAS_VERTEX_COLOR
+        vertexColor_update();
+    #endif
 }
