@@ -1946,6 +1946,9 @@ class VectorTileLayerRenderer extends maptalks.renderer.TileLayerCanvasRenderer 
         let max = -Infinity;
         let min = Infinity;
         for (let i = 0; i < data.length; i++) {
+            if (!data[i]) {
+                continue;
+            }
             const packs = data[i].data;
             if (!packs) {
                 continue;
