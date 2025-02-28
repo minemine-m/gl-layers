@@ -420,8 +420,8 @@ export default class VectorPack {
         if (!pack) {
             return null;
         }
-        this.properties.minAltitude = this.minPosZ;
-        this.properties.maxAltitude = this.maxPosZ;
+        this.properties.minAltitude = this.minPosZ / 100;
+        this.properties.maxAltitude = this.maxPosZ / 100;
         pack.properties = this.properties;
         if (this.empty) {
             pack.empty = true;
