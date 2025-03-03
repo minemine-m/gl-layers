@@ -90,9 +90,14 @@ export function buildWireframe(
 
         const colorStart = offset / 3 * 4;
         const { altitude, height } = PackUtil.getFeaAltitudeAndHeight(feature, altitudeScale, altitudeProperty, defaultAltitude, heightProperty, defaultHeight, minHeightProperty);
+        if (height < 0) {
+            minAltitude = Math.min(altitude, minAltitude);
+            maxAltitude = Math.max(altitude - height, maxAltitude);
+        } else {
+            minAltitude = Math.min(altitude - height, minAltitude);
+            maxAltitude = Math.max(altitude, maxAltitude);
+        }
 
-        maxAltitude = Math.max(altitude, maxAltitude);
-        minAltitude = Math.min(altitude - height, minAltitude);
         let start = offset;
         for (let i = 0, l = geometry.length; i < l; i++) {
             // const ring = geometry[i];
@@ -127,14 +132,15 @@ export function buildWireframe(
     const tIndices = new ctor(indices);
 
     const feaCtor = PackUtil.getUnsignedArrayType(features.length);
-    const posArrayType = PackUtil.getPosArrayType(Math.max(512, maxAltitude));
+    const maxAltitudeValue = Math.max(Math.abs(maxAltitude, Math.abs(minAltitude)));
+    const posArrayType = PackUtil.getPosArrayType(Math.max(512, maxAltitudeValue));
     const data = {
         aPosition: new posArrayType(vertices),  // vertexes
         indices: tIndices,    // indices for drawElements
         aPickingId: new feaCtor(featIndexes),     // vertex index of each feature
         aColor: colors,
-        maxAltitude: maxAltitude === -Infinity ? 0 : maxAltitude,
-        minAltitude: minAltitude === Infinity ? 0 : minAltitude
+        maxAltitude: maxAltitude === -Infinity ? 0 : maxAltitude / 100,
+        minAltitude: minAltitude === Infinity ? 0 : minAltitude / 100
     };
     return data;
 }

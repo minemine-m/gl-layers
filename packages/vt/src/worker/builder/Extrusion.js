@@ -173,9 +173,12 @@ export function buildExtrudeFaces(
         const { altitude, height } = PackUtil.getFeaAltitudeAndHeight(feature, altitudeScale, altitudeProperty, defaultAltitude, heightProperty, defaultHeight, minHeightProperty);
         if (height < 0) {
             hasNegativeHeight = true;
+            minAltitude = Math.min(altitude, minAltitude);
+            maxAltitude = Math.max(altitude - height, maxAltitude);
+        } else {
+            maxAltitude = Math.max(altitude, maxAltitude);
+            minAltitude = Math.min(altitude - height, minAltitude);
         }
-        maxAltitude = Math.max(altitude, maxAltitude);
-        minAltitude = Math.min(altitude - height, minAltitude);
 
         const verticeCount = vertices.getLength();
 

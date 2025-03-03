@@ -1955,7 +1955,7 @@ class VectorTileLayerRenderer extends maptalks.renderer.TileLayerCanvasRenderer 
             }
             for (let ii = 0; ii < packs.length; ii++) {
                 const pack = packs[ii];
-                if (!pack) {
+                if (!pack || !pack.properties) {
                     continue;
                 }
                 const { maxAltitude, minAltitude } = pack.properties;
@@ -1967,8 +1967,8 @@ class VectorTileLayerRenderer extends maptalks.renderer.TileLayerCanvasRenderer 
                 }
             }
         }
-        MINMAX[0] = min;
-        MINMAX[1] = max;
+        MINMAX[0] = min === Infinity ? 0 : min;
+        MINMAX[1] = max === -Infinity ? 0 : max;
         return MINMAX;
     }
 

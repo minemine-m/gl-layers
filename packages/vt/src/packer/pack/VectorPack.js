@@ -238,8 +238,9 @@ export default class VectorPack {
             if (!textPitchAlignmentFn && isLinePlacement && this.symbolDef['textPitchAlignment'] === 'map') {
                 hasMapPitchAlign = true;
             }
+            const MINMAX = [];
             for (let i = 0; i < checked.length; i++) {
-                const [minAltitude, maxAltitude]  = getMaxAltitude([], checked[i] && checked[i].geometry);
+                const [minAltitude, maxAltitude]  = getMaxAltitude(MINMAX, checked[i] && checked[i].geometry);
                 if (maxAltitude > maxZ) {
                     maxZ = maxAltitude;
                 }
