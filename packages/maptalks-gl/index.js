@@ -13,3 +13,8 @@ export * from '@maptalks/3dtiles';
 export * from '@maptalks/gltf-layer';
 export * from '@maptalks/transform-control';
 export * from '@maptalks/video-layer';
+export * from 'maptalks.heatmap';
+export * from 'maptalks.routeplayer';
+export * from 'maptalks.mapboxgl';
+export * from 'maptalks.three';
+export {transcoders};

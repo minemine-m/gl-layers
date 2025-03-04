@@ -4,6 +4,7 @@
   "description": "All-in-one package for maptalks webgl layers",
   "module": "index.js",
   "main": "dist/maptalks-gl.js",
+  "mglmain": "dist/glcore.js",
   "unpkg": "dist/maptalks-gl.js",
   "jsdelivr": "dist/maptalks-gl.js",
   "types": "index.d.ts",
@@ -11,6 +12,7 @@
     "clean": "rimraf dist",
     "dev": "rollup -w -c rollup.config.js",
     "build": "npm run clean && rollup -c rollup.config.js && npm run copy-styles",
+    "build_mgl": "npm run clean && rollup -c rollup.config_mgl.js && npm run copy-styles&&node rel.js",
     "copy-darwin-styles": "cp -rf node_modules/maptalks/dist/images dist && cp -f node_modules/maptalks/dist/maptalks.css dist",
     "copy-win-styles": "xcopy node_modules\\maptalks\\dist\\images dist\\images /e /y /i && copy node_modules\\maptalks\\dist\\maptalks.css dist\\maptalks-gl.css",
     "copy-styles": "npm run copy-win-styles"
@@ -48,6 +50,10 @@
     "@maptalks/transform-control": "workspace:*",
     "@maptalks/video-layer": "workspace:*",
     "@maptalks/vt": "workspace:*",
-    "maptalks": "^1.0.5"
+    "maptalks": "^1.0.0-rc.40",
+    "maptalks.heatmap":"0.6.2",
+    "maptalks.routeplayer":"1.0.0",
+    "maptalks.mapboxgl":"0.3.4",
+    "maptalks.three":"0.38.3"
   }
 }
