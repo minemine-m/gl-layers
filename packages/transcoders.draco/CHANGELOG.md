@@ -1,5 +1,11 @@
 # @maptalks/transcoders.draco
 
+## 0.101.2
+
+### Patch Changes
+
+- a version fix some issues
+
 ## 0.101.1
 
 ### Patch Changes

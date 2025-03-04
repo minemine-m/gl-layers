@@ -1,5 +1,11 @@
 # @maptalks/3dtiles
 
+## 0.104.2
+
+### Patch Changes
+
+- a version fix some issues
+
 ## 0.104.1
 
 ### Patch Changes
