@@ -508,8 +508,20 @@ importers:
         specifier: workspace:*
         version: link:../vt
       maptalks:
-        specifier: ^1.0.5
+        specifier: ^1.0.0-rc.40
         version: 1.0.5
+      maptalks.heatmap:
+        specifier: 0.6.2
+        version: 0.6.2
+      maptalks.mapboxgl:
+        specifier: 0.3.4
+        version: 0.3.4
+      maptalks.routeplayer:
+        specifier: 1.0.0
+        version: 1.0.0
+      maptalks.three:
+        specifier: 0.38.3
+        version: 0.38.3
     devDependencies:
       '@rollup/plugin-commonjs':
         specifier: ^25.0.7
@@ -2127,6 +2139,9 @@ packages:
   detect-node@2.1.0:
     resolution: {integrity: sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==}
 
+  deyihu-geometry-extrude@0.1.10:
+    resolution: {integrity: sha512-qvX/TbA7aELZOwYOlhp2+gJILRGiUPGyErJDgTV8sooyocKERSxYWJxvwCT5bySnrVoJAd9Juh6jF8MvXzVbxA==}
+
   di@0.0.1:
     resolution: {integrity: sha512-uJaamHkagcZtHPqCIHZxnFrXlunQXgBOsZSUOWwFw31QJCAbyTBoHMW75YOTur5ZNx8pIeAKgf6GWIgaqqiLhA==}
 
@@ -2449,6 +2464,9 @@ packages:
 
   geojson-polygon-self-intersections@1.2.1:
     resolution: {integrity: sha512-/QM1b5u2d172qQVO//9CGRa49jEmclKEsYOQmWP9ooEjj63tBM51m2805xsbxkzlEELQ2REgTf700gUhhlegxA==}
+
+  geolib@3.3.3:
+    resolution: {integrity: sha512-YO704pzdB/8QQekQuDmFD5uv5RAwAf4rOUPdcMhdEOz+HoPWD0sC7Qqdwb+LAvwIjXVRawx0QgZlocKYh8PFOQ==}
 
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
@@ -2911,6 +2929,18 @@ packages:
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
 
+  maptalks.heatmap@0.6.2:
+    resolution: {integrity: sha512-FMuHz3eQJgMPR/maReNv1N7sYMnUevPLxNj5zzD9NzqX1O1dLN4VvsqG4APESvzOpRjUjYaHcFoHu5d44osDNw==}
+
+  maptalks.mapboxgl@0.3.4:
+    resolution: {integrity: sha512-WLRhV4aZBkfKWHC6lJsIZaWo+sXoPP339aa5m+frpxFmxAUGheWy5CvRX5ZZhqIQurqIdHU+psnOW5O4xqocyQ==}
+
+  maptalks.routeplayer@1.0.0:
+    resolution: {integrity: sha512-iTfbq4Ult1cohXjNHGlARhI6v2AFR3ZpogyjhHpp2N31oT+Mi8CrohCAXVUo7k8+RKmxYg2yIHmykT0limfzsg==}
+
+  maptalks.three@0.38.3:
+    resolution: {integrity: sha512-Auto+BTNumJ6r9LFhpY+20tWRCYentAiVGDasTKLTrJkc25+6I5Rvh0lNzfBDYsndKPFBVWV501eKP9tJuQjqg==}
+
   maptalks@1.0.5:
     resolution: {integrity: sha512-uXSRfsq2os7n2Wzl/ejImgoNPw5qgQbzuiPmHCQDsTr5rEzH2Cm4O8sRrvZH4NInxRvqHU2HL4aNHKuulwrBZg==}
 
@@ -3213,6 +3243,9 @@ packages:
   point-in-polygon@1.1.0:
     resolution: {integrity: sha512-3ojrFwjnnw8Q9242TzgXuTD+eKiutbzyslcq1ydfu82Db2y+Ogbmyrkpv0Hgj31qwT3lbS9+QAAO/pIQM35XRw==}
 
+  poly-extrude@0.3.0:
+    resolution: {integrity: sha512-CGnivlf8xonFCC3wYpLiD1b1o4j5BW62vZ3iu3ZWcQUMl7g3/crmiULnL5mxEBapwyXcd+4Cr8AkK/3ICa7xnQ==}
+
   polygon-clipping@0.15.7:
     resolution: {integrity: sha512-nhfdr83ECBg6xtqOAJab1tbksbBAOMUltN60bU+llHVOL0e5Onm1WpAXXWXVB39L8AJFssoIhEVuy/S90MmotA==}
 
@@ -3489,6 +3522,9 @@ packages:
 
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
+
+  simpleheat@0.4.0:
+    resolution: {integrity: sha512-tdg3I1NvzMdPKscWBrHbF0LBf+VWuBBazzGUPtFJjG5Q12VQX6gPY8jLy9hx5CbgAIVc5nfnePwJvAYK6z1rAA==}
 
   simplify-js@1.2.4:
     resolution: {integrity: sha512-vITfSlwt7h/oyrU42R83mtzFpwYk3+mkH9bOHqq/Qw6n8rtR7aE3NZQ5fbcyCUVVmuMJR6ynsAhOfK2qoah8Jg==}
@@ -5925,6 +5961,10 @@ snapshots:
   detect-node@2.1.0:
     optional: true
 
+  deyihu-geometry-extrude@0.1.10:
+    dependencies:
+      earcut: 2.2.4
+
   di@0.0.1: {}
 
   diff@5.0.0: {}
@@ -6333,6 +6373,8 @@ snapshots:
   geojson-polygon-self-intersections@1.2.1:
     dependencies:
       rbush: 2.0.2
+
+  geolib@3.3.3: {}
 
   get-caller-file@2.0.5: {}
 
@@ -6842,6 +6884,21 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
+  maptalks.heatmap@0.6.2:
+    dependencies:
+      simpleheat: 0.4.0
+
+  maptalks.mapboxgl@0.3.4: {}
+
+  maptalks.routeplayer@1.0.0:
+    dependencies:
+      geolib: 3.3.3
+
+  maptalks.three@0.38.3:
+    dependencies:
+      deyihu-geometry-extrude: 0.1.10
+      poly-extrude: 0.3.0
+
   maptalks@1.0.5:
     dependencies:
       '@maptalks/feature-filter': 1.3.0
@@ -7103,6 +7160,10 @@ snapshots:
   point-in-polygon-hao@1.1.0: {}
 
   point-in-polygon@1.1.0: {}
+
+  poly-extrude@0.3.0:
+    dependencies:
+      earcut: 2.2.4
 
   polygon-clipping@0.15.7:
     dependencies:
@@ -7410,6 +7471,8 @@ snapshots:
   simple-swizzle@0.2.2:
     dependencies:
       is-arrayish: 0.3.2
+
+  simpleheat@0.4.0: {}
 
   simplify-js@1.2.4: {}
 
