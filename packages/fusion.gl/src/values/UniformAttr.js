@@ -132,7 +132,16 @@ include(GLContext.prototype, {
     },
     uniformMatrix4fv(location, transpose, value) {
         if (!location || this._gl.isContextLost()) {
-            console.warn('UniformLocation无效或上下文已丢失');
+            // console.warn('UniformLocation无效, 当前浏览器为Chromium旧版或阉割版，建议使用最新的chorme或者Edge浏览器');
+            console.warn(
+                'WebGl着色器获取UniformLocation无效, 当前浏览器为%cChromium旧版或阉割版%c，建议使用最新的%cChorme%c或者%cEdge%c浏览器',
+                'color: #ff4444; font-weight: bold',  // 红色高亮问题浏览器
+                '',                                   // 恢复默认样式
+                'color: #2196f3; font-weight: bold',                   // 绿色高亮推荐浏览器1
+                '',                                   // 恢复默认样式
+                'color: #2196f3; font-weight: bold', // 蓝色高亮推荐浏览器2
+                ''                                    // 恢复默认样式
+              );
             return;
         }
         value = this._checkMatrix4fvNaN(value);

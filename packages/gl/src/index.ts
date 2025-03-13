@@ -6,7 +6,6 @@ import './map/MapPostProcess';
 import * as HighlightUtil from './layer/util/highlight';
 import * as ContextUtil from './layer/util/context';
 export { GroupGLLayer, GroundPainter, HighlightUtil, ContextUtil };
-
 export { default as HeatmapProcess } from './layer/HeatmapProcess';
 export { GLContext } from '@maptalks/fusiongl';
 import MaskLayerMixin from './layer/mask/MaskLayerMixin';
