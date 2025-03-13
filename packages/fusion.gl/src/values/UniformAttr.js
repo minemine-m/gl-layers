@@ -131,6 +131,10 @@ include(GLContext.prototype, {
         this._gl.uniformMatrix3fv(location, transpose, value);
     },
     uniformMatrix4fv(location, transpose, value) {
+        if (!location || this._gl.isContextLost()) {
+            console.warn('UniformLocation无效或上下文已丢失');
+            return;
+        }
         value = this._checkMatrix4fvNaN(value);
         if (this._ifUniformEquals(location, transpose, value)) {
             return;
