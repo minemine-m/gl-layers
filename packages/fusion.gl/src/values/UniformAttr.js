@@ -141,7 +141,7 @@ include(GLContext.prototype, {
                 '',                                   // 恢复默认样式
                 'color: #2196f3; font-weight: bold', // 蓝色高亮推荐浏览器2
                 ''                                    // 恢复默认样式
-              );
+            );
             return;
         }
         value = this._checkMatrix4fvNaN(value);
