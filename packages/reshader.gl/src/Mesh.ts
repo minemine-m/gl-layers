@@ -183,11 +183,11 @@ class Mesh {
     }
 
     get castShadow(): boolean {
-      return this._castShadow && (!this.material || !this.material.unlit);
+        return this._castShadow && (!this.material || !this.material.unlit);
     }
 
     set castShadow(v: boolean) {
-      this._castShadow = v;
+        this._castShadow = v;
     }
 
     setMaterial(material: Material) {
@@ -219,29 +219,29 @@ class Mesh {
     }
 
     setFunctionUniform(k: string, fn: () => ShaderUniformValue): this {
-      this._updateUniformState(k);
-      Object.defineProperty(this.uniforms, k, {
-        enumerable: true,
-        get: fn
-      });
-      return this;
+        this._updateUniformState(k);
+        Object.defineProperty(this.uniforms, k, {
+            enumerable: true,
+            get: fn
+        });
+        return this;
     }
 
     hasFunctionUniform(k: string): boolean {
-      if (!this.uniforms) {
-        return false;
-      }
-      return Object.prototype.hasOwnProperty.call(this.uniforms, k);
+        if (!this.uniforms) {
+            return false;
+        }
+        return Object.prototype.hasOwnProperty.call(this.uniforms, k);
     }
 
     //@internal
     _updateUniformState(k: string) {
-      if (this.uniforms[k] === undefined) {
-        this._dirtyUniforms = true;
-      } else {
-        this._dirtyProps = this._dirtyProps || [];
-        this._dirtyProps.push(k);
-      }
+        if (this.uniforms[k] === undefined) {
+            this._dirtyUniforms = true;
+        } else {
+            this._dirtyProps = this._dirtyProps || [];
+            this._dirtyProps.push(k);
+        }
     }
 
     getUniform(k: string): ShaderUniformValue {
@@ -383,21 +383,25 @@ class Mesh {
         } else if (this._dirtyProps || this._material && this._material.propVersion !== this._materialPropVer) {
             if (this._dirtyProps) {
                 for (const p of this._dirtyProps) {
-                    this._realUniforms[p] = this.uniforms[p];
+                    try {
+                        this._realUniforms[p] = this.uniforms[p];
+                    } catch (e) {
+                        console.error(e);
+                    }
                 }
             }
             if (this._material && this._material.propVersion !== this._materialPropVer) {
-              const materialUniforms = this._material.getUniforms(regl);
-              for (const p in materialUniforms) {
-                  if (hasOwn(materialUniforms, p) && !this._uniformDescriptors.has(p)) {
-                      const descriptor = Object.getOwnPropertyDescriptor(materialUniforms, p);
-                      if (!descriptor.get && this._realUniforms[p] !== materialUniforms[p]) {
-                        this._realUniforms[p] = materialUniforms[p];
-                      }
-                  }
-              }
+                const materialUniforms = this._material.getUniforms(regl);
+                for (const p in materialUniforms) {
+                    if (hasOwn(materialUniforms, p) && !this._uniformDescriptors.has(p)) {
+                        const descriptor = Object.getOwnPropertyDescriptor(materialUniforms, p);
+                        if (!descriptor.get && this._realUniforms[p] !== materialUniforms[p]) {
+                            this._realUniforms[p] = materialUniforms[p];
+                        }
+                    }
+                }
 
-              this._materialPropVer = this._material.propVersion;
+                this._materialPropVer = this._material.propVersion;
             }
             this._dirtyProps = null;
         }

@@ -6,7 +6,7 @@ import { ShaderUniforms, ShaderUniformValue, ShaderDefines } from './types/typin
 import { Regl, Texture } from '@maptalks/regl';
 import Geometry from './Geometry';
 
-class Base {}
+class Base { }
 
 class Material extends Eventable(Base) {
     uniforms: ShaderUniforms
@@ -34,25 +34,30 @@ class Material extends Eventable(Base) {
 
     constructor(uniforms: ShaderUniforms = {}, defaultUniforms: ShaderUniforms) {
         super()
-        this._version = 0;
-        this._propVerion = 0;
-        this.uniforms = extendWithoutNil({}, defaultUniforms || {}, uniforms);
-        for (const p in uniforms) {
-            const getter = Object.getOwnPropertyDescriptor(uniforms, p).get;
-            if (getter) {
-                Object.defineProperty(this.uniforms, p, {
-                    get: getter
-                });
+        try {
+            this._version = 0;
+            this._propVerion = 0;
+            this.uniforms = extendWithoutNil({}, defaultUniforms || {}, uniforms);
+            for (const p in uniforms) {
+                const getter = Object.getOwnPropertyDescriptor(uniforms, p).get;
+                if (getter) {
+                    Object.defineProperty(this.uniforms, p, {
+                        get: getter
+                    });
+                }
             }
+            this.unlit = false;
+            this._reglUniforms = {};
+            this.refCount = 0;
+            this._bindedOnTextureComplete = (...args) => {
+                return this._onTextureComplete.call(this, ...args);
+            };
+            this._genUniformKeys();
+            this._checkTextures();
+        } catch (e) {
+            // console.error(e);
         }
-        this.unlit = false;
-        this._reglUniforms = {};
-        this.refCount = 0;
-        this._bindedOnTextureComplete = (...args) => {
-            return this._onTextureComplete.call(this, ...args);
-        };
-        this._genUniformKeys();
-        this._checkTextures();
+
     }
 
     set version(v: number) {
@@ -110,20 +115,20 @@ class Material extends Eventable(Base) {
     }
 
     setFunctionUniform(k: string, fn: () => ShaderUniformValue): this {
-      this._genUniformKeys();
-      this._incrVersion();
-      Object.defineProperty(this.uniforms, k, {
-        enumerable: true,
-        get: fn
-      });
-      return this;
+        this._genUniformKeys();
+        this._incrVersion();
+        Object.defineProperty(this.uniforms, k, {
+            enumerable: true,
+            get: fn
+        });
+        return this;
     }
 
     hasFunctionUniform(k: string): boolean {
-      if (!this.uniforms) {
-        return false;
-      }
-      return Object.prototype.hasOwnProperty.call(this.uniforms, k);
+        if (!this.uniforms) {
+            return false;
+        }
+        return Object.prototype.hasOwnProperty.call(this.uniforms, k);
     }
 
     get(k: string): ShaderUniformValue {

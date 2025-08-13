@@ -73,7 +73,7 @@ export default class GLTFPack {
                 max[2] = bboxMax[2];
             }
         }
-        return{ min, max };
+        return { min, max };
     }
 
     _createSkins(skins) {
@@ -95,13 +95,18 @@ export default class GLTFPack {
         }
         this._textureMap = {};
         for (let i = 0; i < textures.length; i++) {
-            const texture = textures[i];
-            //避免重复创建纹理对象
-            if (!this._textureMap[i]) {
-                this._textureMap[i] = this._toTexture(texture);
-                //图像数据可能占有较大内存，在创建texture完成后可删除
-                delete texture.image;
+            try {
+                const texture = textures[i];
+                //避免重复创建纹理对象
+                if (!this._textureMap[i]) {
+                    this._textureMap[i] = this._toTexture(texture);
+                    //图像数据可能占有较大内存，在创建texture完成后可删除
+                    delete texture.image;
+                }
+            } catch {
+
             }
+
         }
     }
 
@@ -181,7 +186,7 @@ export default class GLTFPack {
             if (node.skin && nodeMatrix) {
                 const jointTexture = node.skin.update(nodeMatrix, nodeMatrixMap, skinMap[node.nodeIndex] && skinMap[node.nodeIndex].jointTexture);
                 if (!skinMap[node.nodeIndex]) {
-                    skinMap[node.nodeIndex] =  {
+                    skinMap[node.nodeIndex] = {
                         jointTextureSize: node.skin.jointTextureSize,
                         numJoints: node.skin.joints.length
                     };
@@ -199,7 +204,7 @@ export default class GLTFPack {
         }
         const gltf = getGLTFLoaderBundle();
         timespan = json.animations ? gltf.GLTFLoader.getAnimationTimeSpan(json, animationName) : null;
-        return (time* speed * 0.001) / (timespan.max - timespan.min) < 1;
+        return (time * speed * 0.001) / (timespan.max - timespan.min) < 1;
     }
 
     hasSkinAnimation() {
@@ -253,7 +258,7 @@ export default class GLTFPack {
             }
         }
         const influences = node.influencesList;
-        for (let i =  0; i < influences.length; i++) {
+        for (let i = 0; i < influences.length; i++) {
             const influence = influences[i];
             influence[0] = i;
             influence[1] = weights[i];
@@ -343,7 +348,7 @@ export default class GLTFPack {
                     nodeMatrix,
                     materialInfo,
                     extraInfo: this._createExtralInfo(primitive.material),
-                    animationMatrix : node.trs.getMatrix(),
+                    animationMatrix: node.trs.getMatrix(),
                     morphWeights: node.weights,
                     nodeIndex: node.nodeIndex
                 };
@@ -374,7 +379,7 @@ export default class GLTFPack {
                     materialUniforms['baseColorTexture'] = this._getTexture(baseColorTexture);
                     if (baseColorTexture['KHR_texture_transform']) {
                         materialUniforms['khr_offset'] = baseColorTexture['KHR_texture_transform'].offset || [0, 0];
-                        materialUniforms['khr_rotation'] = baseColorTexture['KHR_texture_transform'].rotation ||0;
+                        materialUniforms['khr_rotation'] = baseColorTexture['KHR_texture_transform'].rotation || 0;
                         materialUniforms['khr_scale'] = baseColorTexture['KHR_texture_transform'].scale || [1, 1];
                     }
                 }
@@ -518,7 +523,7 @@ function createGeometry(primitive, regl, hasAOMap) {
         0,
         {
             //绘制类型，例如 triangle strip, line等，根据gltf中primitive的mode来判断，默认是triangles
-            primitive : isNumber(primitive.mode) ? getPrimitive(primitive.mode) : primitive.mode,
+            primitive: isNumber(primitive.mode) ? getPrimitive(primitive.mode) : primitive.mode,
             positionAttribute: 'POSITION',
             normalAttribute: 'NORMAL',
             uv0Attribute: 'TEXCOORD_0',
@@ -536,7 +541,7 @@ function createGeometry(primitive, regl, hasAOMap) {
 }
 
 function numericalSort(a, b) {
-    return a[ 0 ] - b[ 0 ];
+    return a[0] - b[0];
 }
 
 function absNumericalSort(a, b) {
