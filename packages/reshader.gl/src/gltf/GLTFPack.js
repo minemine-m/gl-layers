@@ -103,8 +103,8 @@ export default class GLTFPack {
                     //图像数据可能占有较大内存，在创建texture完成后可删除
                     delete texture.image;
                 }
-            } catch {
-
+            } catch (e) {
+                // console.error(e);
             }
 
         }
